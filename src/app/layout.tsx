@@ -7,6 +7,20 @@ const inter = Inter({ subsets: ["latin"] });
 export const metadata: Metadata = {
   title: "Hi, I'm Neeraj - I Build the Web",
   description: "Hi, I'm Neeraj — a passionate Full-Stack Developer skilled in the MERN stack. I specialize in building scalable, responsive web applications that solve real-world problems. From crafting sleek frontends to architecting powerful backends, I bring ideas to life through clean and efficient code.",
+  keywords: [
+    "Neeraj",
+    "Neeraj Chouhan",
+    "neerajchouhan",
+    "Neeraj Developer",
+    "Neeraj Portfolio",
+    "Full-Stack Developer",
+    "MERN Developer",
+    "Web Developer India",
+    "Portfolio Website Developer",
+  ],
+  authors: [{ name: "Neeraj Chouhan" }],
+  creator: "Neeraj Chouhan",
+  robots: "index, follow",
 };
 
 export default function RootLayout({
