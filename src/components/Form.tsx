@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, { useState } from "react";
 import { Label } from "./ui/label";
 import { Input } from "./ui/input";
 import { cn } from "@/utils/cn";
@@ -9,21 +9,39 @@ import {
   IconBrandOnlyfans,
 } from "@tabler/icons-react";
 import { TextArea } from "./ui/textarea";
-
+import toast from 'react-hot-toast';
 export function Form() {
+  const [result, setResult] = useState("");
+
+  const onSubmit = async (event) => {
+    event.preventDefault();
+    setResult("Sending....");
+    const formData = new FormData(event.target);
+
+    formData.append("access_key", "52057cbf-6c5d-4064-98e9-c2ab5ff758ab");
+
+    const response = await fetch("https://api.web3forms.com/submit", {
+      method: "POST",
+      body: formData
+    });
+
+    const data = await response.json();
+
+    if (data.success) {
+      setResult("Form Submitted Successfully");
+      toast.success('Form Submitted Successfully')
+      event.target.reset();
+    } else {
+      console.log("Error", data);
+      setResult(data.message);
+    }
+  };
 
   return (
     <div className="shadow-input mx-auto w-full max-w-md rounded-none bg-white p-4 md:rounded-2xl md:p-8 dark:bg-black">
       <form
-        className="my-8"
-        method="POST"
-        action="https://api.web3forms.com/submit"
+        onSubmit={onSubmit}
       >
-        <input
-          type="hidden"
-          name="access_key"
-          value="52057cbf-6c5d-4064-98e9-c2ab5ff758ab"
-        />
         <LabelInputContainer className="mb-4">
           <Label htmlFor="name">Full Name</Label>
           <Input id="name" name='name' placeholder="your name" type="text" required />
