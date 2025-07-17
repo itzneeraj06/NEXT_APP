@@ -11,34 +11,30 @@ import {
 import { TextArea } from "./ui/textarea";
 
 export function Form() {
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    console.log("Form submitted");
-  };
+
   return (
     <div className="shadow-input mx-auto w-full max-w-md rounded-none bg-white p-4 md:rounded-2xl md:p-8 dark:bg-black">
       <form
         className="my-8"
         method="POST"
         action="https://api.web3forms.com/submit"
-      // onSubmit={handleSubmit}
       >
         <input
           type="hidden"
           name="access_key"
-          value="YOUR_ACCESS_KEY_HERE"
+          value="52057cbf-6c5d-4064-98e9-c2ab5ff758ab"
         />
         <LabelInputContainer className="mb-4">
-          <Label htmlFor="firstname">Full Name</Label>
-          <Input id="firstname" placeholder="your name" type="text" />
+          <Label htmlFor="name">Full Name</Label>
+          <Input id="name" name='name' placeholder="your name" type="text" required />
         </LabelInputContainer>
         <LabelInputContainer className="mb-4">
           <Label htmlFor="email">Email Address</Label>
-          <Input id="email" placeholder="yourname@connect.com" type="email" />
+          <Input id="email" name="email" placeholder="yourname@connect.com" type="email" required />
         </LabelInputContainer>
         <LabelInputContainer className="mb-4">
-          <Label htmlFor="email">Message</Label>
-          <TextArea id="email" placeholder="enter your message here" rows={3} />
+          <Label htmlFor="message">Message</Label>
+          <TextArea id="message" name="message" placeholder="enter your message here" rows={3} required />
         </LabelInputContainer>
         <button
           className="group/btn relative block h-10 w-full rounded-md bg-gradient-to-br from-black to-neutral-600 font-medium text-white shadow-[0px_1px_0px_0px_#ffffff40_inset,0px_-1px_0px_0px_#ffffff40_inset] dark:bg-zinc-800 dark:from-zinc-900 dark:to-zinc-900 dark:shadow-[0px_1px_0px_0px_#27272a_inset,0px_-1px_0px_0px_#27272a_inset]"
