@@ -13,7 +13,7 @@ import toast from 'react-hot-toast';
 export function Form() {
   const [result, setResult] = useState("");
 
-  const onSubmit = async (event) => {
+  const onSubmit = async (event:any) => {
     event.preventDefault();
     setResult("Sending....");
     const formData = new FormData(event.target);
